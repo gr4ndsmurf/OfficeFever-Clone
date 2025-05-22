@@ -539,7 +539,7 @@ Transform:
   m_GameObject: {fileID: 206334739}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.253}
+  m_LocalPosition: {x: -1.385, y: 0.01, z: -1.021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2370,6 +2370,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.61645496, y: 2.0196667, z: 0.61645496}
   m_Center: {x: 0, y: 1.0098333, z: 0}
+--- !u!1 &1058862355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1058862356}
+  m_Layer: 0
+  m_Name: CollectPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1058862356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1058862355}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8089735698507786601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1073739028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3726,9 +3757,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1696360133}
   - component: {fileID: 1696360134}
+  - component: {fileID: 1696360135}
   m_Layer: 0
   m_Name: Printer
-  m_TagString: Untagged
+  m_TagString: CollectArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3766,7 +3798,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paperList: []
   paperPrefab: {fileID: 5119508191733811899, guid: b6c0c2c6fd95c7c478da77fa4615d7a7, type: 3}
+  paperHeight: 0.02
+  paperDropHeight: 1
+  dropDuration: 0.3
+  columnOffset: 0.5
+  paperPrintTime: 1
   exitPoint: {fileID: 206334740}
+--- !u!65 &1696360135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696360132}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.7857547, y: 0.78618515, z: 1.4841614}
+  m_Center: {x: -0.89287734, y: 0.46069843, z: -1.0631733}
 --- !u!1001 &1730825295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6837,6 +6895,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8089735698507786601}
   - component: {fileID: 6513994517483750807}
+  - component: {fileID: 8089735698507786603}
+  - component: {fileID: 8089735698507786602}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -7007,8 +7067,41 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6690939399140402687}
+  - {fileID: 1058862356}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8089735698507786602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722114971758195329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2588e84628ec4ac42ad5e81929d6ea5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperList: []
+  paperLimit: 15
+  paperPrefab: {fileID: 5119508191733811899, guid: b6c0c2c6fd95c7c478da77fa4615d7a7, type: 3}
+  collectPoint: {fileID: 1058862356}
+  paperHeight: 0.02
+  paperDropHeight: 1
+  dropDuration: 0.2
+--- !u!114 &8089735698507786603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722114971758195329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd17ca765d85bc947a680519d931cabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectTime: 0.5
 --- !u!4 &8104407207691979368
 Transform:
   m_ObjectHideFlags: 0
