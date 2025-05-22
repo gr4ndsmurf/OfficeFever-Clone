@@ -18,10 +18,12 @@ public class CollectManager : MonoBehaviour
     void OnEnable()
     {
         TriggerManager.OnPaperCollect += GetPaper;
+        TriggerManager.OnPaperGive += GivePaper;
     }
     void OnDisable()
     {
         TriggerManager.OnPaperCollect -= GetPaper;
+        TriggerManager.OnPaperGive -= GivePaper;
     }
 
     public void RemoveLast()
@@ -51,16 +53,20 @@ public class CollectManager : MonoBehaviour
             lastPaper = temp.transform;
             paperList.Add(temp.gameObject);
 
-            if (TriggerManager.printerManager != null)
+            if (TriggerManager.PrinterManager != null)
             {
-                TriggerManager.printerManager.RemoveLast();
+                TriggerManager.PrinterManager.RemoveLast();
             }
         }
     }
 
     void GivePaper()
     {
-
+        if (paperList.Count > 0)
+        {
+            TriggerManager.WorkerManager.GetPaper();
+            RemoveLast();
+        }
     }
 
 }

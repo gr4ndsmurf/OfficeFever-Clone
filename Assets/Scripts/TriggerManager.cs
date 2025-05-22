@@ -5,11 +5,12 @@ public class TriggerManager : MonoBehaviour
 {
     public delegate void OnCollectArea();
     public static event OnCollectArea OnPaperCollect;
-    public static PrinterManager printerManager;
+    public static PrinterManager PrinterManager;
 
 
     public delegate void OnDeskArea();
     public static event OnDeskArea OnPaperGive;
+    public static WorkerManager WorkerManager;
 
     bool isCollecting;
     bool isGiving;
@@ -42,12 +43,13 @@ public class TriggerManager : MonoBehaviour
         if (other.gameObject.CompareTag("CollectArea"))
         {
             isCollecting = true;
-            printerManager = other.gameObject.GetComponent<PrinterManager>();
+            PrinterManager = other.gameObject.GetComponent<PrinterManager>();
         }
 
         if (other.gameObject.CompareTag("WorkArea"))
         {
             isGiving = true;
+            WorkerManager = other.gameObject.GetComponent<WorkerManager>();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -55,12 +57,13 @@ public class TriggerManager : MonoBehaviour
         if (other.gameObject.CompareTag("CollectArea"))
         {
             isCollecting = false;
-            printerManager = null;
+            PrinterManager = null;
         }
 
         if (other.gameObject.CompareTag("WorkArea"))
         {
             isGiving = false;
+            WorkerManager = null;
         }
     }
 }
