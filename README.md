@@ -1,6 +1,6 @@
 # 🎮 Office Fever Clone
 
-A simple clone of the popular mobile game "Office Fever", recreated for learning and practice purposes.
+A simple Unity clone of the popular mobile game Office Fever. Built for educational purposes to explore game mechanics and mobile optimization techniques.
 
 ## 📸 Gameplay
 
