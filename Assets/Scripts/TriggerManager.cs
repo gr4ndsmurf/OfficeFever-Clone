@@ -15,11 +15,15 @@ public class TriggerManager : MonoBehaviour
 
     public delegate void OnMoneyArea();
     public static event OnMoneyArea OnMoneyCollected;
+    public static BuyArea areaToBuy;
+
+    public delegate void OnBuyArea();
+    public static event OnBuyArea OnBuyingDesk;
 
     bool isCollecting;
     bool isGiving;
 
-    [SerializeField] private float CollectTime = 0.5f;
+    [SerializeField] private float CollectTime = 0.3f;
 
     void Start()
     {
@@ -64,6 +68,12 @@ public class TriggerManager : MonoBehaviour
             isGiving = true;
             WorkerManager = other.gameObject.GetComponent<WorkerManager>();
         }
+
+        if (other.gameObject.CompareTag("BuyArea"))
+        {
+            OnBuyingDesk();
+            areaToBuy = other.gameObject.GetComponent<BuyArea>();
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -77,6 +87,10 @@ public class TriggerManager : MonoBehaviour
         {
             isGiving = false;
             WorkerManager = null;
+        }
+        if (other.gameObject.CompareTag("BuyArea"))
+        {
+            areaToBuy = null;
         }
     }
 }

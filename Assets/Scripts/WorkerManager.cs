@@ -13,7 +13,7 @@ public class WorkerManager : MonoBehaviour
     [SerializeField] private float paperHeight, moneyHeight = 0.02f;
     [SerializeField] private float paperDropHeight, moneyDropHeight = 1.0f;
     [SerializeField] private float dropDuration = 0.3f;
-    [SerializeField] private float generateDuration = 0.5f;
+    [SerializeField] private float generateDuration = 1f;
 
     private Transform lastPaper, lastMoney;
 
