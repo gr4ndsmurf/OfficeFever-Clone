@@ -738,9 +738,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 337096975}
+  - component: {fileID: 337096977}
+  - component: {fileID: 337096976}
   m_Layer: 0
   m_Name: Desk
-  m_TagString: Untagged
+  m_TagString: WorkArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -763,8 +765,55 @@ Transform:
   - {fileID: 3500020798401460458}
   - {fileID: 468277895925363706}
   - {fileID: 8539781673214550979}
+  - {fileID: 383779661}
+  - {fileID: 416341303}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &337096976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337096974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1800432, y: 0.770041, z: 2.4386413}
+  m_Center: {x: -1.0103793, y: 0.43444443, z: -0.48377597}
+--- !u!114 &337096977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337096974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a48c74338b2c143b31d7eec9e35ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paperList: []
+  moneyList: []
+  paperPoint: {fileID: 383779661}
+  moneyPoint: {fileID: 416341303}
+  paperPrefab: {fileID: 5119508191733811899, guid: b6c0c2c6fd95c7c478da77fa4615d7a7, type: 3}
+  moneyPrefab: {fileID: 5119508191733811899, guid: fc89cca0c0efabf4aafbd668dba11257, type: 3}
+  paperHeight: 0.02
+  moneyHeight: 0.02
+  paperDropHeight: 1
+  moneyDropHeight: 1
+  dropDuration: 0.3
+  generateDuration: 0.5
 --- !u!1001 &358332313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -825,6 +874,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 15101718}
   m_SourcePrefab: {fileID: 100100000, guid: 9c552c69b5d844776b91bc232be9a2c4, type: 3}
+--- !u!1 &383779660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 383779661}
+  m_Layer: 0
+  m_Name: DropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &383779661
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383779660}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.666, y: 0.8291, z: -0.167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 337096975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &399484571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -976,6 +1056,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1287981790}
   m_SourcePrefab: {fileID: 100100000, guid: 74e8cedb60b19469395b7d9e8dd11c37, type: 3}
+--- !u!1 &416341302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416341303}
+  m_Layer: 0
+  m_Name: MoneyPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &416341303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416341302}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.508, y: 0.01, z: -0.015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 337096975}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &431154200 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3887590666020923965, guid: 74e8cedb60b19469395b7d9e8dd11c37, type: 3}
@@ -3797,6 +3908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paperList: []
+  paperLimit: 30
   paperPrefab: {fileID: 5119508191733811899, guid: b6c0c2c6fd95c7c478da77fa4615d7a7, type: 3}
   paperHeight: 0.02
   paperDropHeight: 1
@@ -6895,6 +7007,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8089735698507786601}
   - component: {fileID: 6513994517483750807}
+  - component: {fileID: 8089735698507786604}
   - component: {fileID: 8089735698507786603}
   - component: {fileID: 8089735698507786602}
   m_Layer: 0
@@ -7102,6 +7215,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectTime: 0.5
+--- !u!114 &8089735698507786604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7722114971758195329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5752dbe11f4bc7f4bad0ad56928a79c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyCount: 0
 --- !u!4 &8104407207691979368
 Transform:
   m_ObjectHideFlags: 0

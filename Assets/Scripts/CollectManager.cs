@@ -5,7 +5,7 @@ using DG.Tweening;
 public class CollectManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> paperList = new List<GameObject>();
-    [SerializeField] private int paperLimit;
+    [SerializeField] private int paperLimit = 15;
     [SerializeField] private GameObject paperPrefab;
     [SerializeField] private Transform collectPoint;
 

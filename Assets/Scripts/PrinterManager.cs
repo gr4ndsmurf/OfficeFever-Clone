@@ -6,6 +6,7 @@ using DG.Tweening;
 public class PrinterManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> paperList = new List<GameObject>();
+    [SerializeField] private int paperLimit = 30;
     [SerializeField] private GameObject paperPrefab;
     [SerializeField] private float paperHeight = 0.02f;
     [SerializeField] private float paperDropHeight = 1.0f;
@@ -52,12 +53,12 @@ public class PrinterManager : MonoBehaviour
 
                 paperList.Add(temp);
 
-                if (paperList.Count >= 30)
+                if (paperList.Count >= paperLimit)
                 {
                     isWorking = false;
                 }
             }
-            else if (paperList.Count < 30)
+            else if (paperList.Count < paperLimit)
             {
                 isWorking = true;
             }

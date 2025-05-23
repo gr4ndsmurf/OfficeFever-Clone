@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using DG.Tweening;
 
 public class TriggerManager : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class TriggerManager : MonoBehaviour
     public delegate void OnDeskArea();
     public static event OnDeskArea OnPaperGive;
     public static WorkerManager WorkerManager;
+
+    public delegate void OnMoneyArea();
+    public static event OnMoneyArea OnMoneyCollected;
 
     bool isCollecting;
     bool isGiving;
@@ -38,6 +42,15 @@ public class TriggerManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Money"))
+        {
+            OnMoneyCollected();
+            DOTween.Kill(other.transform);
+            Destroy(other.gameObject);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.CompareTag("CollectArea"))
